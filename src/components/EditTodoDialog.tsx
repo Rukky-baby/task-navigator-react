@@ -71,6 +71,10 @@ const EditTodoDialog: React.FC<EditTodoDialogProps> = ({
     onOpenChange(newOpen);
   };
 
+  const handleCompletedChange = (checked: boolean | "indeterminate") => {
+    setCompleted(checked === true);
+  };
+
   const hasChanges = 
     title !== todo.title || 
     completed !== todo.completed || 
@@ -114,7 +118,7 @@ const EditTodoDialog: React.FC<EditTodoDialogProps> = ({
             <Checkbox
               id="edit-completed"
               checked={completed}
-              onCheckedChange={setCompleted}
+              onCheckedChange={handleCompletedChange}
             />
             <Label htmlFor="edit-completed">Mark as completed</Label>
           </div>

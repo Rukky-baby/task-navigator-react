@@ -62,6 +62,10 @@ const CreateTodoDialog: React.FC<CreateTodoDialogProps> = ({
     onOpenChange(newOpen);
   };
 
+  const handleCompletedChange = (checked: boolean | "indeterminate") => {
+    setCompleted(checked === true);
+  };
+
   return (
     <Dialog open={open} onOpenChange={handleOpenChange}>
       <DialogContent className="sm:max-w-md">
@@ -100,7 +104,7 @@ const CreateTodoDialog: React.FC<CreateTodoDialogProps> = ({
             <Checkbox
               id="completed"
               checked={completed}
-              onCheckedChange={setCompleted}
+              onCheckedChange={handleCompletedChange}
             />
             <Label htmlFor="completed">Mark as completed</Label>
           </div>
